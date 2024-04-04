@@ -9,16 +9,8 @@ read -r target_grafana_url
 echo "Enter Target Grafana Instance API Key:"
 read -r target_grafana_token
 
-export SOURCE_GRAFANA_URL=${source_grafana_url}
-export SOURCE_GRAFANA_TOKEN=${source_grafana_token}
-export TARGET_GRAFANA_URL=${target_grafana_url}
-export TARGET_GRAFANA_TOKEN=${target_grafana_token}
-
-
 source_url="${source_grafana_url}api/datasources"
 target_url="${target_grafana_url}api/datasources"
-
-echo ${source_url}
 
 json_response=$(curl -s --insecure -H "Authorization: Bearer ${source_grafana_token}" -H "Content-Type: application/json" "${source_url}")
 
